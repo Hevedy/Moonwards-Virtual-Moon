@@ -134,6 +134,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Script/Manager/SignalsManager/NetworkSignals.gd"
 }, {
+"base": "Control",
+"class": "Presentation",
+"language": "GDScript",
+"path": "res://SceneComponent/Display/Presentation.gd"
+}, {
 "base": "Reference",
 "class": "ResourceSignals",
 "language": "GDScript",
@@ -143,6 +148,11 @@ _global_script_classes=[ {
 "class": "ResourceThreadedLoader",
 "language": "GDScript",
 "path": "res://Script/Manager/ResourceManager/ResourceThreadedLoader.gd"
+}, {
+"base": "Control",
+"class": "Slide",
+"language": "GDScript",
+"path": "res://SceneComponent/Display/Slide.gd"
 } ]
 _global_script_class_icons={
 "AComponent": "",
@@ -170,8 +180,10 @@ _global_script_class_icons={
 "MwSpatial": "",
 "NetworkManager": "",
 "NetworkSignals": "",
+"Presentation": "res://Assets/Icons/Presentation.svg",
 "ResourceSignals": "",
-"ResourceThreadedLoader": ""
+"ResourceThreadedLoader": "",
+"Slide": "res://Assets/Icons/Slide.svg"
 }
 
 [application]
