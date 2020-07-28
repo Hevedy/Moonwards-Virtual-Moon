@@ -8,6 +8,8 @@ class_name Interactor
 #This is what I pass as the interactor.
 var owning_entity : AEntity
 
+var enabled: bool setget set_enabled
+
 signal interactable_entered_area(interactable_node)
 signal interactable_left_area(interactable_node)
 signal interact_made_possible(string_closest_potential_interact)
@@ -20,9 +22,10 @@ var interactables : Array = []
 #This is how I will not spam a signal when I have potential interacts.
 var previous_collider : Area = null
 
-func _ready():
+func _ready() -> void:
 	collision_layer = 0
 	collision_mask = 32768
+	enabled = false
 	
 	connect("area_exited", self, "_interactable_left")
 	connect("area_entered", self, "_interactable_entered")
@@ -66,19 +69,18 @@ func get_potential_interacts() -> Array :
 
 #Interact with the given interactable.
 func interact(interactable) -> void :
-	assert(interactables.empty() == false)
 	interactable.interact_with(owning_entity)
-	emit_signal("interacted_with", interactable.owning_entity)
-
-#Interact with the closest potential interactable. Can be called when no interactables are present.
-func interact_with_closest() -> void :
-	if interactables.empty() :
-		return
-	
-	interactables[0].interact_with(owning_entity)
-	if interactables[0].owning_entity != null:
-		emit_signal("interacted_with", interactables[0].owning_entity)
+	emit_signal("interacted_with", interactable)
 
 #An interactable has entered my area.
 func _interactable_entered(interactable_node) -> void :
 	emit_signal("interactable_entered_area", interactable_node)
+
+func set_enabled(val: bool) -> void:
+	if !val:
+		interactables = []
+	set_physics_process(val)
+	set_process(val)
+	set_process_input(val)
+	$CollisionShape.disabled = !val
+	enabled = val

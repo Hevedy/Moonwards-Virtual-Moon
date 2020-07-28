@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://SceneComponent/Display/ViewportViewer.gd" type="Script" id=1]
@@ -40,7 +41,9 @@ func e():
 extents = Vector3( 1, 1, 0.01 )
 script = SubResource( 4 )
 
+
 [sub_resource type="BoxShape" id=6]
+
 
 [node name="Screen" type="Spatial"]
 script = ExtResource( 1 )
@@ -51,6 +54,9 @@ size = Vector2( 1920, 1080 )
 transparent_bg = true
 hdr = false
 usage = 0
+
+gui_snap_controls_to_pixels = false
+
 
 [node name="Area" type="Area" parent="."]
 
@@ -67,3 +73,4 @@ transform = Transform( 1, 0, 0, 0, 0.01, 0, 0, 0, 0.4, 0, -0.99, 0.4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractionTrigger"]
 shape = SubResource( 6 )
+

@@ -12,7 +12,7 @@ var entities_container: Node
 # Array of EntityData
 var entities: Dictionary = {}
 
-func _ready():
+func _ready() -> void:
 	world = yield(Scene.change_scene_to_async(Scene.world_scene), "scene_changed")
 	
 	world.name = "World"
@@ -45,41 +45,42 @@ puppetsync func add_player(entity_data) -> void:
 		return
 	
 	var e = Scene.PLAYER_SCENE.instance()
-	e.transform.origin = entity_data.initial_pos
 	e.name = str(entity_data.peer_id)
 	e.entity_name = str(entity_data.entity_name)
 	e.owner_peer_id = entity_data.peer_id
 	e.set_network_master(1)
+	e.enabled = true
 	entities_container.add_child(e)
-	var model = e.get_component("ModelComponent")
-	model.set_colors(entity_data.colors)
-
+	e.global_transform.origin = entity_data.initial_pos
+#	var model = e.get_component("ModelComponent")
+#	model.set_colors(entity_data.colors)
+	
 ### Networking API
 ## See if we can move this to it's own script.
 
 # Controlled RPC Wrapper with added control.
-func crpc(caller: Node, method: String, val, exclude_list: Array = []):
+func crpc(caller: Node, method: String, args = [], exclude_list: Array = []):
 	for client in entities.values():
 		if not exclude_list.has(client.peer_id):
-			caller.rpc_id(client.peer_id, method, val)
+			caller.rpc_id(client.peer_id, method, args)
 
 # Controlled RPC Wrapper with added control.
-func crpc_unreliable(caller: Node, method: String, val, exclude_list: Array = []):
+func crpc_unreliable(caller: Node, method: String, args = [], exclude_list: Array = []):
 	for client in entities.values():
 		if not exclude_list.has(client.peer_id):
-			caller.rpc_unreliable_id(client.peer_id, method, val)
+			caller.rpc_unreliable_id(client.peer_id, method, args)
 
 # Controlled RSET Wrapper with added control.
-func crset(caller: Node, method: String, val, exclude_list: Array = []):
+func crset(caller: Node, method: String, args = [], exclude_list: Array = []):
 	for client in entities.values():
 		if not exclude_list.has(client.peer_id):
-			caller.rset_id(client.peer_id, method, val)
+			caller.rset_id(client.peer_id, method, args)
 
 # Controlled RSET Wrapper with added control.
-func crset_unreliable(caller: Node, method: String, val, exclude_list: Array = []):
+func crset_unreliable(caller: Node, method: String, args = [], exclude_list: Array = []):
 	for client in entities.values():
 		if not exclude_list.has(client.peer_id):
-			caller.rset_id(client.peer_id, method, val)
+			caller.rset_id(client.peer_id, method, args)
 
 ### Figure out a better way to handle this, if godot allows
 func crpc_signal(instance: Object, sig_name: String, param = null):
