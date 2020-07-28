@@ -154,7 +154,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Script/Manager/ResourceManager/ResourceThreadedLoader.gd"
 }, {
-
 "base": "Control",
 "class": "Slide",
 "language": "GDScript",
@@ -164,7 +163,7 @@ _global_script_classes=[ {
 "class": "SlideViewport",
 "language": "GDScript",
 "path": "res://SceneComponent/Display/SlideViewport.gd"
-
+}, {
 "base": "AEntity",
 "class": "StaticEntity",
 "language": "GDScript",
@@ -174,7 +173,6 @@ _global_script_classes=[ {
 "class": "VehicleEntity",
 "language": "GDScript",
 "path": "res://Script/Entity/VehicleEntity.gd"
-
 } ]
 _global_script_class_icons={
 "AComponent": "",
@@ -206,13 +204,10 @@ _global_script_class_icons={
 "Presentation": "res://Assets/Icons/Presentation.svg",
 "ResourceSignals": "",
 "ResourceThreadedLoader": "",
-
 "Slide": "res://Assets/Icons/Slide.svg",
-"SlideViewport": "res://Assets/Icons/SlideViewport.svg"
-
+"SlideViewport": "res://Assets/Icons/SlideViewport.svg",
 "StaticEntity": "",
 "VehicleEntity": ""
-
 }
 
 [application]
