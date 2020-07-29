@@ -139,11 +139,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Script/Manager/SignalsManager/NetworkSignals.gd"
 }, {
-"base": "Control",
-"class": "Presentation",
-"language": "GDScript",
-"path": "res://SceneComponent/Display/SlidePresentation/Presentation.gd"
-}, {
 "base": "Reference",
 "class": "ResourceSignals",
 "language": "GDScript",
@@ -153,16 +148,6 @@ _global_script_classes=[ {
 "class": "ResourceThreadedLoader",
 "language": "GDScript",
 "path": "res://Script/Manager/ResourceManager/ResourceThreadedLoader.gd"
-}, {
-"base": "Control",
-"class": "Slide",
-"language": "GDScript",
-"path": "res://SceneComponent/Display/SlidePresentation/Slide.gd"
-}, {
-"base": "Viewport",
-"class": "SlideViewport",
-"language": "GDScript",
-"path": "res://SceneComponent/Display/SlidePresentation/SlideViewport.gd"
 }, {
 "base": "AEntity",
 "class": "StaticEntity",
@@ -201,11 +186,8 @@ _global_script_class_icons={
 "MwSpatial": "",
 "NetworkManager": "",
 "NetworkSignals": "",
-"Presentation": "",
 "ResourceSignals": "",
 "ResourceThreadedLoader": "",
-"Slide": "",
-"SlideViewport": "",
 "StaticEntity": "",
 "VehicleEntity": ""
 }
@@ -259,26 +241,6 @@ enabled=PoolStringArray( "QuickPluginManager", "editor_icon_previewer", "moonwar
 
 [importer_defaults]
 
-texture={
-"compress/bptc_ldr": 0,
-"compress/hdr_mode": 0,
-"compress/lossy_quality": 0.7,
-"compress/mode": 2,
-"compress/normal_map": 1,
-"detect_3d": true,
-"flags/anisotropic": false,
-"flags/filter": true,
-"flags/mipmaps": true,
-"flags/repeat": 1,
-"flags/srgb": 2,
-"process/HDR_as_SRGB": false,
-"process/fix_alpha_border": true,
-"process/invert_color": false,
-"process/premult_alpha": false,
-"size_limit": 0,
-"stream": false,
-"svg/scale": 1.0
-}
 scene={
 "animation/clip_1/end_frame": 0,
 "animation/clip_1/loops": false,
@@ -1330,6 +1292,26 @@ scene={
 "nodes/root_type": "LodModel (LodModel.gd)",
 "nodes/storage": 0,
 "skins/use_named_skins": true
+}
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 2,
+"compress/normal_map": 0,
+"detect_3d": true,
+"flags/anisotropic": false,
+"flags/filter": true,
+"flags/mipmaps": true,
+"flags/repeat": 1,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
 }
 
 [input]
