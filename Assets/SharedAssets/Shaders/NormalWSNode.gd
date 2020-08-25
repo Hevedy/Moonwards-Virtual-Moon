@@ -23,7 +23,7 @@ func _get_input_port_count() -> int:
 #func _get_input_port_name(port: int):
 #	match port:
 #		0:
-#			return "hue"
+#			return ""
 
 #func _get_input_port_type(port: int):
 #	match port:
@@ -41,14 +41,14 @@ func _get_output_port_type(port: int) -> int:
 
 func _get_global_code(mode: int) -> String:
 	return """
-vec3 GetWorldNormal( vec4 _Camera, vec3 _Normal ) {
+vec3 GetWorldNormal( mat4 _Camera, vec3 _Normal ) {
 	vec4 camx = _Camera[0];
 	vec4 camy = _Camera[1];
 	vec4 camz = _Camera[2];
 	vec4 camw = _Camera[3];
 	mat3 cam = mat3(camx.xyz, camy.xyz, camz.xyz);
 
-	return _Normal * invcam;
+	return _Normal * cam;
 }
 """
 
